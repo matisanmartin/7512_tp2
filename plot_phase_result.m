@@ -1,4 +1,4 @@
-function r = plot_phase_result(v1, u1, l1, v2, u2, l2, v3, u3, l3, xl, yl, title, filename)
+function r = plot_phase_result(v1, u1, l1, v2, u2, l2, v3, u3, l3, xl, yl, plot_title, filename)
     fig = figure;
     set(fig, 'Visible', 'off');
     plot(v1, u1, 'r', 'Markersize', 3);
@@ -12,7 +12,8 @@ function r = plot_phase_result(v1, u1, l1, v2, u2, l2, v3, u3, l3, xl, yl, title
     legend(l1, l2, l3);
     xlabel(xl);
     ylabel(yl);
+    title(plot_title);
     grid on;
-    print(fig, filename, '-dpng');
+    print(filename, '-djpg')
     r=0;
 end

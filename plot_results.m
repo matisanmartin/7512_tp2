@@ -1,4 +1,4 @@
-function r = plot_results(x, y1, leg1, y2, leg2, y3, leg3, xl, yl, title, filename)
+function r = plot_results(x, y1, leg1, y2, leg2, y3, leg3, xl, yl, plot_title, filename)
     fig = figure;
     set(fig, 'Visible', 'off');
     plot(x, y1, 'r', 'Markersize', 3);
@@ -12,8 +12,8 @@ function r = plot_results(x, y1, leg1, y2, leg2, y3, leg3, xl, yl, title, filena
     legend(l1, l2, l3);
     xlabel(xl);
     ylabel(yl);
-
+    title(plot_title);
     grid on;
-    print(fig, filename, '-dpng');
+    print(filename, '-djpg')
     r=0;
 end
