@@ -4,7 +4,7 @@ close all;
 % Constantes
 ti = 0;
 tf = 100;
-h = 0.5;
+h = 0.8;
 vt = ti:h:tf;
 n=ceil((tf-ti)/h);
 
@@ -38,17 +38,17 @@ for i=1:6
     [v_rk4, u_rk4] = rk4(n, b, w, e, h, f1, f2, v0, u0);
 
     % Graficos de v vs t
-    filename_v = strcat('plot_v', '_b=', num2str(b), '_e=', num2str(e), '_w=', num2str(w), '_u0=', num2str(u0), '_v0=', num2str(v0));
-    title_v = strcat('t vs v(t) para ', ' b=', num2str(b), ' e=', num2str(e), ' w=', num2str(w), ' u0=', num2str(u0), ' v0=', num2str(v0));
+    filename_v = strcat('plot_v', '_b=', num2str(b), '_e=', num2str(e), '_w=', num2str(w), '_v0=', num2str(v0), '_u0=', num2str(u0),'.jpg');
+    title_v = strcat('t vs v(t) para ', ' b=', num2str(b), ' e=', num2str(e), ' w=', num2str(w), ' v0=', num2str(v0), ' u0=', num2str(u0));
     rv = plot_results_v(vt, v_euler, 'Euler', v_rk2, 'Runge-Kutta Orden 2', v_rk4, 'Runge-Kutta Orden 4', v_lsode(:,1), 'lsode', 't', 'v(t)', title_v, filename_v);
 
     % Graficos de dv vs t
-    filename_u = strcat('plot_u', '_b=', num2str(b), '_e=', num2str(e), '_w=', num2str(w), '_u0=', num2str(u0), '_v0=', num2str(v0));
-    title_u = strcat('t vs v''(t) para ', ' b=', num2str(b), ' e=', num2str(e), ' w=', num2str(w), ' u0=', num2str(u0), ' v0=', num2str(v0));
+    filename_u = strcat('plot_u', '_b=', num2str(b), '_e=', num2str(e), '_w=', num2str(w), '_v0=', num2str(v0), '_u0=', num2str(u0), '.jpg');
+    title_u = strcat('t vs v''(t) para ', ' b=', num2str(b), ' e=', num2str(e), ' w=', num2str(w), ' v0=', num2str(v0), ' u0=', num2str(u0));
     ru = plot_results_dv(vt, u_euler, 'Euler', u_rk2, 'Runge-Kutta Orden 2', u_rk4, 'Runge-Kutta Orden 4', 't', 'v''(t)', title_u, filename_u);
 
     % Graficos de fase
-    filename_uv = strcat('plot_phase', '_b=', num2str(b), '_e=', num2str(e), '_w=', num2str(w), '_u0=', num2str(u0), '_v0=', num2str(v0));
-    title_uv = strcat('Grafico de fase para ', ' b=', num2str(b), ' e=', num2str(e), ' w=', num2str(w), ' u0=', num2str(u0), ' v0=', num2str(v0));
+    filename_uv = strcat('plot_phase', '_b=', num2str(b), '_e=', num2str(e), '_w=', num2str(w), '_v0=', num2str(v0), '_u0=', num2str(u0), '.jpg');
+    title_uv = strcat('Grafico de fase para ', ' b=', num2str(b), ' e=', num2str(e), ' w=', num2str(w), ' v0=', num2str(v0), ' u0=', num2str(u0));
     ruv = plot_phase_result(v_euler, u_euler, 'Euler', v_rk2, u_rk2, 'Runge-Kutta Orden 2', v_rk4, u_rk4, 'Runge-Kutta Orden 4', 'v(t)', 'v''(t)', title_uv, filename_uv);
 end
