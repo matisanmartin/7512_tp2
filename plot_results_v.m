@@ -1,4 +1,4 @@
-function r = plot_results(x, y1, leg1, y2, leg2, y3, leg3, xl, yl, plot_title, filename)
+function r = plot_results_v(x, y1, leg1, y2, leg2, y3, leg3, y4, leg4, xl, yl, plot_title, filename)
     fig = figure;
     set(fig, 'Visible', 'off');
     plot(x, y1, 'r', 'Markersize', 3);
@@ -9,7 +9,10 @@ function r = plot_results(x, y1, leg1, y2, leg2, y3, leg3, xl, yl, plot_title, f
     hold on;
     l3 = sprintf(leg3);
     plot(x, y3, 'b', 'Markersize', 3);
-    legend(l1, l2, l3);
+    hold on;
+    l4 = sprintf(leg4);
+    plot(x,y4,'y', 'Markersize', 3);
+    legend(l1, l2, l3,l4);
     xlabel(xl);
     ylabel(yl);
     title(plot_title);
