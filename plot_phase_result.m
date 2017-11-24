@@ -9,11 +9,10 @@ function r = plot_phase_result(v1, u1, l1, v2, u2, l2, v3, u3, l3, xl, yl, title
     hold on;
     l3 = sprintf(l3);
     plot(v3, u3, 'b', 'Markersize', 3);
-    LEGEND(l1, l2, l3);
+    legend(l1, l2, l3);
     xlabel(xl);
-    ylabel(yl)
-    title(title)
+    ylabel(yl);
     grid on;
     print(fig, filename, '-dpng');
-    r=0
+    r=0;
 end

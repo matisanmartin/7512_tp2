@@ -1,14 +1,14 @@
 % Metodo de Runge-Kutta orden 4 %
-function [v,u] = rk4(t, b, w, e, h, f1, f2, v0, u0)
+function [v,u] = rk4(n, b, w, e, h, f1, f2, v0, u0)
 
-    v=zeros(1,t+1);
-    u=zeros(1,t+1);
+    v=zeros(1, n+1);
+    u=zeros(1, n+1);
 
 	v(1) = v0;
 	u(1) = u0;
 
-	for i = 1:t
-        tau = (i-1)*h
+	for i = 1:n
+        tau = (i-1)*h;
 		k1 = h*f1(u(i), v(i), b, w, e, tau);
 		q1 = h*f2(u(i), v(i), b, w, e, tau);
 
